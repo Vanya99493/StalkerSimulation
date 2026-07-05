@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94e340c85fd46768855009d4310a5fc, type: 3}
+  m_Name: _RegularNpcBehaviourConfig
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Configs.Npc.NpcBehaviourConfig
+  NpcStateConfigs:
+  - {fileID: 11400000, guid: 64a424bbebbaeee44bf54b54b65bcd74, type: 2}
+  - {fileID: 11400000, guid: cd6118b82f151494399d6bbb1698010b, type: 2}
+  - {fileID: 11400000, guid: 9f9c17720283f1341a22ec776e21ca50, type: 2}
+  - {fileID: 11400000, guid: da138a1e0b7dd874483d8f65b3968c6b, type: 2}

@@ -571,6 +571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 213353767}
+  - component: {fileID: 213353768}
   m_Layer: 0
   m_Name: CheckPoint1
   m_TagString: Untagged
@@ -595,6 +596,28 @@ Transform:
   - {fileID: 1629351067}
   m_Father: {fileID: 762005216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &213353768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213353766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4482d9971f742eca8bfef11b86af112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Environment.CheckPoint
+  _obstacles:
+  - {fileID: 133830540}
+  - {fileID: 2063562614}
+  - {fileID: 417494167}
+  - {fileID: 2025047637}
+  - {fileID: 55772510}
+  - {fileID: 2038660993}
+  _spawnPoint: {fileID: 0}
+  _innerRadius: 5
+  _outerRadius: 10
 --- !u!1001 &275605424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1383,6 +1406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 564046260}
+  - component: {fileID: 564046261}
   m_Layer: 0
   m_Name: CheckPoint4
   m_TagString: Untagged
@@ -1407,6 +1431,28 @@ Transform:
   - {fileID: 92492222}
   m_Father: {fileID: 762005216}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &564046261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564046259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4482d9971f742eca8bfef11b86af112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Environment.CheckPoint
+  _obstacles:
+  - {fileID: 539871018}
+  - {fileID: 26645274}
+  - {fileID: 824054464}
+  - {fileID: 1935620735}
+  - {fileID: 1142681510}
+  - {fileID: 1069678379}
+  _spawnPoint: {fileID: 0}
+  _innerRadius: 5
+  _outerRadius: 10
 --- !u!1001 &573857991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1504,6 +1550,58 @@ Transform:
   - {fileID: 904181937}
   - {fileID: 1544386462}
   m_Father: {fileID: 825111833}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &632424709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 632424711}
+  - component: {fileID: 632424710}
+  m_Layer: 0
+  m_Name: NpcSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &632424710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632424709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ffa433ef84640fa9a3746e574bce99a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Npc.NpcSpawner
+  _npcFactory: {fileID: 1698925415}
+  _navMeshSurface: {fileID: 918070898}
+  _team1Base: {fileID: 660068209}
+  _team2Base: {fileID: 1763007284}
+  _defaultOrderData:
+    OrderType: 0
+  _npcBehaviourConfig: {fileID: 11400000, guid: 0b935a042a30a6d478e87a57a050a635, type: 2}
+--- !u!4 &632424711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 632424709}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1698925416}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &653075380
 GameObject:
@@ -1753,6 +1851,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660068208}
+  - component: {fileID: 660068209}
   m_Layer: 0
   m_Name: Base1
   m_TagString: Untagged
@@ -1777,6 +1876,34 @@ Transform:
   - {fileID: 1944221612}
   m_Father: {fileID: 762005216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &660068209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660068207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4482d9971f742eca8bfef11b86af112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Environment.CheckPoint
+  _obstacles:
+  - {fileID: 1665594900}
+  - {fileID: 2128334151}
+  - {fileID: 2047856315}
+  - {fileID: 1934628490}
+  - {fileID: 20238535}
+  - {fileID: 1473064653}
+  - {fileID: 1189173255}
+  - {fileID: 734240463}
+  - {fileID: 720680946}
+  - {fileID: 494301056}
+  - {fileID: 1038558329}
+  - {fileID: 1480522957}
+  _spawnPoint: {fileID: 0}
+  _innerRadius: 5
+  _outerRadius: 10
 --- !u!1 &684961640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,6 +1913,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 684961641}
+  - component: {fileID: 684961642}
   m_Layer: 0
   m_Name: Entry
   m_TagString: Untagged
@@ -1808,6 +1936,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &684961642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684961640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770504fe28b145d3bc5f4e482253eefe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Entry.StalkerSimulationEntryPoint
+  _npcSpawner: {fileID: 632424710}
 --- !u!1001 &720680945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2196,6 +2337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 825111833}
+  - component: {fileID: 825111834}
   m_Layer: 0
   m_Name: CheckPoint2
   m_TagString: Untagged
@@ -2220,6 +2362,28 @@ Transform:
   - {fileID: 590596710}
   m_Father: {fileID: 762005216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &825111834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825111832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4482d9971f742eca8bfef11b86af112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Environment.CheckPoint
+  _obstacles:
+  - {fileID: 2102983380}
+  - {fileID: 364006020}
+  - {fileID: 573857992}
+  - {fileID: 857920826}
+  - {fileID: 904181937}
+  - {fileID: 1544386462}
+  _spawnPoint: {fileID: 0}
+  _innerRadius: 5
+  _outerRadius: 10
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,6 +2569,7 @@ GameObject:
   - component: {fileID: 918070896}
   - component: {fileID: 918070895}
   - component: {fileID: 918070894}
+  - component: {fileID: 918070898}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -2506,6 +2671,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &918070898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918070893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.11666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 2cd0f015148bc5b4c8e93874818760cc, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!1 &962788917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3075,7 +3272,7 @@ Transform:
   m_GameObject: {fileID: 1213832907}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 4.5}
   m_LocalScale: {x: 10, y: 4, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3276,6 +3473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1398707830}
+  - component: {fileID: 1398707831}
   m_Layer: 0
   m_Name: Battlefield
   m_TagString: Untagged
@@ -3299,6 +3497,32 @@ Transform:
   - {fileID: 962788918}
   m_Father: {fileID: 762005216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1398707831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398707829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4482d9971f742eca8bfef11b86af112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Environment.CheckPoint
+  _obstacles:
+  - {fileID: 1594153420}
+  - {fileID: 1516175405}
+  - {fileID: 1488346128}
+  - {fileID: 188805837}
+  - {fileID: 2034207777}
+  - {fileID: 1565254682}
+  - {fileID: 1462801074}
+  - {fileID: 816338088}
+  - {fileID: 1234025396}
+  - {fileID: 1448838484}
+  _spawnPoint: {fileID: 0}
+  _innerRadius: 5
+  _outerRadius: 10
 --- !u!1 &1403611989
 GameObject:
   m_ObjectHideFlags: 0
@@ -4092,7 +4316,7 @@ Transform:
   m_GameObject: {fileID: 1665594896}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: -4.5}
   m_LocalScale: {x: 10, y: 4, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4160,6 +4384,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6381540729974599602, guid: 2840616579dfd744496930f68fa04e8d, type: 3}
   m_PrefabInstance: {fileID: 1679580062}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1698925414
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1698925416}
+  - component: {fileID: 1698925415}
+  m_Layer: 0
+  m_Name: NpcFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1698925415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698925414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225caea687ad4493bba455be5c1360a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Npc.NpcFactory
+  _prefab: {fileID: 5221980465029466311, guid: 7f788ca9a9b85f44db3bdd43025d7c78, type: 3}
+  _parent: {fileID: 1698925416}
+--- !u!4 &1698925416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698925414}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 632424711}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1763007282
 GameObject:
   m_ObjectHideFlags: 0
@@ -4169,6 +4439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1763007283}
+  - component: {fileID: 1763007284}
   m_Layer: 0
   m_Name: Base2
   m_TagString: Untagged
@@ -4193,6 +4464,34 @@ Transform:
   - {fileID: 92530432}
   m_Father: {fileID: 762005216}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1763007284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763007282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4482d9971f742eca8bfef11b86af112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Environment.CheckPoint
+  _obstacles:
+  - {fileID: 1213832911}
+  - {fileID: 1774686547}
+  - {fileID: 658840185}
+  - {fileID: 1074159876}
+  - {fileID: 1908576221}
+  - {fileID: 781846258}
+  - {fileID: 1895001663}
+  - {fileID: 134043471}
+  - {fileID: 1548784653}
+  - {fileID: 1248813917}
+  - {fileID: 315061757}
+  - {fileID: 1821661970}
+  _spawnPoint: {fileID: 0}
+  _innerRadius: 5
+  _outerRadius: 10
 --- !u!1001 &1774686546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4749,6 +5048,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2008294930}
+  - component: {fileID: 2008294931}
   m_Layer: 0
   m_Name: CheckPoint3
   m_TagString: Untagged
@@ -4773,6 +5073,28 @@ Transform:
   - {fileID: 654248274}
   m_Father: {fileID: 762005216}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &2008294931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008294929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4482d9971f742eca8bfef11b86af112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Environment.CheckPoint
+  _obstacles:
+  - {fileID: 971946635}
+  - {fileID: 656852015}
+  - {fileID: 1679580063}
+  - {fileID: 1369900265}
+  - {fileID: 275605425}
+  - {fileID: 443232842}
+  _spawnPoint: {fileID: 0}
+  _innerRadius: 5
+  _outerRadius: 10
 --- !u!1001 &2025047636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5354,6 +5676,7 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 1866490883}
   - {fileID: 684961641}
+  - {fileID: 632424711}
   - {fileID: 817404394}
   - {fileID: 918070897}
   - {fileID: 762005216}

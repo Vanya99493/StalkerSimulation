@@ -8,6 +8,11 @@ namespace StalkerSimulation.Entry
 		[SerializeField]
 		private NpcSpawner _npcSpawner;
 
+		private void Awake()
+		{
+			_npcSpawner.Initialize();
+		}
+
 		private void OnDestroy()
 		{
 			_npcSpawner.DestroyAllNpc();
@@ -16,7 +21,7 @@ namespace StalkerSimulation.Entry
 		[ContextMenu("Spawn NPC")]
 		public void SpawnNpc()
 		{
-			_npcSpawner.SpawnNpc();
+			_npcSpawner.SpawnNpc(TeamType.Team1);
 		}
 	}
 }

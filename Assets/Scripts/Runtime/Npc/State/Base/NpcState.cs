@@ -2,8 +2,15 @@
 {
 	public abstract class NpcState
 	{
-		public abstract void OnStateEnter();
+		protected INpcController _npcController;
+
+		public void Initialize(INpcController npcController)
+		{
+			_npcController = npcController;
+		}
+		
+		public abstract void EnterState();
 		public abstract void Act();
-		public abstract void OnStateExit();
+		public abstract void ExitState();
 	}
 }

@@ -1,7 +1,8 @@
 ﻿namespace StalkerSimulation.Npc
 {
-	public class AttackState
+	public enum TeamType
 	{
-		
+		Team1,
+		Team2,
 	}
 }
