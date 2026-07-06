@@ -1,9 +1,11 @@
 ﻿namespace StalkerSimulation.Npc
 {
-	public abstract class NpcState
+	public abstract class NpcState : INpcState
 	{
 		protected INpcController _npcController;
 
+		public abstract float AlertRadius { get; }
+		
 		public void Initialize(INpcController npcController)
 		{
 			_npcController = npcController;

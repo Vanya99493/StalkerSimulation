@@ -10,6 +10,8 @@ namespace StalkerSimulation.Npc
 		private float _observingTime;
 		private float _passedTime;
 
+		public override float AlertRadius => _observeStateData.AlertRadius;
+
 		public ObserveState(ObserveStateData observeStateData)
 		{
 			_observeStateData = observeStateData;

@@ -31,6 +31,7 @@ namespace StalkerSimulation.Npc
 		public INpcMovementController MovementController => _movementController;
 		public ICheckPoint CurrentCheckPoint => _currentCheckPoint;
 		public OrderData OrderData => _orderData.Clone();
+		public INpcState CurrentState => _currentNpcState;
 		
 		public string Name => _npcData.Name;
 		public TeamType TeamType => _npcData.TeamType;

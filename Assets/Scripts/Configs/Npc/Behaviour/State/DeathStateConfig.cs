@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace StalkerSimulation.Configs.Npc
 {
+	[CreateAssetMenu(fileName = "DeathStateConfig", menuName = "Scriptable Objects/Npc/Behaviour/States/Death State")]
 	public class DeathStateConfig : NpcStateConfig
 	{
 		[SerializeField]

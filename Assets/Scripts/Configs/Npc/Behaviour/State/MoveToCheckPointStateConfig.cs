@@ -7,6 +7,9 @@ namespace StalkerSimulation.Configs.Npc
 		menuName = "Scriptable Objects/Npc/Behaviour/States/Move To Check Point State")]
 	public class MoveToCheckPointStateConfig : NpcStateConfig
 	{
-		public override NpcState BuildNpcState() => new MoveToCheckPointState();
+		[SerializeField]
+		private StateData _stateData;
+
+		public override NpcState BuildNpcState() => new MoveToCheckPointState(_stateData);
 	}
 }

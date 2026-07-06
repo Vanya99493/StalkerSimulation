@@ -170,6 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1969196826891088616}
+  - component: {fileID: 7457796595215882535}
   - component: {fileID: 7504817499697935315}
   - component: {fileID: 5221980465029466311}
   - component: {fileID: 3002420469723393498}
@@ -199,6 +200,28 @@ Transform:
   - {fileID: 1205379226634076914}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &7457796595215882535
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626915382653107268}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7aab484e20e541a4abdde1f44c001ef8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!195 &7504817499697935315
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -251,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5baae726991f407ba3749b10cbcbe2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Npc.AnimationController
-  _animator: {fileID: 0}
+  _animator: {fileID: 7457796595215882535}
 --- !u!114 &6213753412919733203
 MonoBehaviour:
   m_ObjectHideFlags: 0

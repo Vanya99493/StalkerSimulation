@@ -5,6 +5,15 @@ namespace StalkerSimulation.Npc
 {
 	public class MoveToCheckPointState : NpcState
 	{
+		private readonly StateData _stateData;
+
+		public override float AlertRadius => _stateData.AlertRadius;
+
+		public MoveToCheckPointState(StateData stateData)
+		{
+			_stateData = stateData;
+		}
+		
 		public override void EnterState()
 		{
 			_npcController.MovementController.DestinationReachedEvent += OnCheckPointReachedEventHandler;

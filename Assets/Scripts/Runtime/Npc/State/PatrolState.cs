@@ -5,7 +5,15 @@ namespace StalkerSimulation.Npc
 {
 	public class PatrolState : NpcState
 	{
+		private readonly StateData _stateData;
 		private bool _isMoving;
+
+		public override float AlertRadius => _stateData.AlertRadius;
+
+		public PatrolState(StateData stateData)
+		{
+			_stateData = stateData;
+		}
 		
 		public override void EnterState()
 		{
