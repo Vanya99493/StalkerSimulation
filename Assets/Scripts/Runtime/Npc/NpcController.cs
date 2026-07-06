@@ -9,22 +9,45 @@ namespace StalkerSimulation.Npc
 	public class NpcController : MonoBehaviour, INpcController, IDestroyable
 	{
 		[SerializeField]
+		private AnimationController _animationController;
+		
+		[SerializeField]
 		private AlertController _alertController;
 		
 		[SerializeField]
 		private NpcMovementController _movementController;
 		
+		[SerializeField]
+		private HealthController _npcHealthController;
+		
+		private NpcData _npcData;
 		private ICheckPoint _currentCheckPoint;
 		private OrderData _orderData;
 
 		private Dictionary<Type, NpcState> _states = new();
 		private NpcState _currentNpcState;
 		
+		public IAnimationController AnimationController => _animationController;
 		public INpcMovementController MovementController => _movementController;
 		public ICheckPoint CurrentCheckPoint => _currentCheckPoint;
 		public OrderData OrderData => _orderData.Clone();
+		
+		public string Name => _npcData.Name;
+		public TeamType TeamType => _npcData.TeamType;
 
 		public event Action<IDestroyable> DestroyEvent;
+
+		private void OnEnable()
+		{
+			_npcHealthController.TakeDamageEvent += OnTakeDamageEventHandler;
+			_npcHealthController.DeathEvent += OnDeathEventHandler;
+		}
+
+		private void OnDisable()
+		{
+			_npcHealthController.TakeDamageEvent -= OnTakeDamageEventHandler;
+			_npcHealthController.DeathEvent -= OnDeathEventHandler;
+		}
 
 		private void Update()
 		{
@@ -34,10 +57,15 @@ namespace StalkerSimulation.Npc
 			_currentStateDebugString = _currentNpcState?.ToString();
 		}
 
-		public void Initialize(NavMeshSurface navMeshSurface)
+		public void Initialize(
+			NpcData npcData,
+			NavMeshSurface navMeshSurface)
 		{
-			_movementController.Initialize(navMeshSurface);
+			_npcData = npcData;
+			
 			_alertController.Initialize(this);
+			_movementController.Initialize(navMeshSurface);
+			_npcHealthController.Initialize(npcData.MaxHealthPoints, npcData.CurrentHealthPoints);
 		}
 
 		public void InitializeBehaviour(Dictionary<Type, NpcState> states)
@@ -96,6 +124,20 @@ namespace StalkerSimulation.Npc
 			DestroyEvent?.Invoke(this);
 		}
 
+		private void OnTakeDamageEventHandler(DamageArgs damageArgs)
+		{
+			
+		}
+
+		private void OnDeathEventHandler(DamageArgs damageArgs)
+		{
+			ChangeState<DeathState>();
+		}
+		
+		// -------------
+		// --- Debug ---
+		// -------------
+		
 		[Space(20)]
 		[Header("Debug")]
 		[SerializeField]

@@ -1,5 +1,5 @@
 ﻿using System;
-using StalkerSimulation.Npc.Data;
+using StalkerSimulation.Npc;
 using UnityEngine;
 
 namespace StalkerSimulation.Configs.Npc
@@ -9,8 +9,8 @@ namespace StalkerSimulation.Configs.Npc
 	{
 		[SerializeField]
 		private ObserveStateData _observeStateData;
-
-		public override StateData GetStateData() => _observeStateData;
+		
+		public override NpcState BuildNpcState() => new ObserveState(_observeStateData);
 
 #if UNITY_EDITOR
 		private void OnValidate()

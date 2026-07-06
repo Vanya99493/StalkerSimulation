@@ -1,5 +1,4 @@
-﻿using StalkerSimulation.Npc.Data;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace StalkerSimulation.Npc
 {

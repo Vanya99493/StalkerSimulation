@@ -1,32 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
 using StalkerSimulation.Configs.Npc;
+using StalkerSimulation.Environment;
+using Unity.AI.Navigation;
 
 namespace StalkerSimulation.Npc
 {
 	public class NpcBuilder
 	{
-		private NpcStateFactory _npcStateFactory = new();
+		private readonly NavMeshSurface _navMeshSurface;
+		private readonly NpcBehaviourConfig _behaviourConfig;
+		private readonly NpcDataConfig _npcDataConfig;
 
-		public void BuildNpcBehaviour(NpcController npcController, NpcBehaviourConfig behaviourConfig)
+		public NpcBuilder(
+			NavMeshSurface navMeshSurface,
+			NpcBehaviourConfig behaviourConfig, 
+			NpcDataConfig npcDataConfig)
 		{
-			Dictionary<Type, NpcState> npcBehaviourStates = BuildStates(npcController, behaviourConfig);
-
-			npcController.InitializeBehaviour(npcBehaviourStates);
+			_navMeshSurface = navMeshSurface;
+			_behaviourConfig =  behaviourConfig;
+			_npcDataConfig = npcDataConfig;
+		}
+		
+		public void BuildNpc(
+			NpcController npcController, 
+			TeamType teamType,
+			ICheckPoint checkPoint,
+			OrderData orderData)
+		{
+			NpcData npcData = BuildNpcData(teamType);
+			npcController.Initialize(npcData, _navMeshSurface);
+			npcController.SetChekPoint(checkPoint);
+			npcController.SetOrder(orderData);
+			
+			BuildNpcBehaviour(npcController);
 		}
 
-		private Dictionary<Type, NpcState> BuildStates(NpcController npcController, NpcBehaviourConfig behaviourConfig)
+		private NpcData BuildNpcData(TeamType teamType)
+		{
+			return new NpcData()
+			{
+				Name = _npcDataConfig.GetRandomFullName(),
+				TeamType = teamType,
+				RankType = RankType.Junior,
+				MaxHealthPoints = _npcDataConfig.MaxHealthPoints,
+				CurrentHealthPoints = _npcDataConfig.MaxHealthPoints,
+			};
+		}
+		
+		private void BuildNpcBehaviour(NpcController npcController)
 		{
 			Dictionary<Type, NpcState> npcBehaviourStates = new();
 
-			foreach (var npcStateConfig in behaviourConfig.NpcStateConfigs)
+			foreach (var npcStateConfig in _behaviourConfig.NpcStateConfigs)
 			{
-				NpcState resultState = _npcStateFactory.CreateState(npcStateConfig);
+				NpcState resultState = npcStateConfig.BuildNpcState();
 				resultState.Initialize(npcController);
 				npcBehaviourStates.Add(resultState.GetType(), resultState);
 			}
-			
-			return npcBehaviourStates;
+
+			npcController.InitializeBehaviour(npcBehaviourStates);
 		}
 	}
 }

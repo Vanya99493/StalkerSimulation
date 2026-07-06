@@ -1,10 +1,10 @@
-﻿using StalkerSimulation.Npc.Data;
+﻿using StalkerSimulation.Npc;
 using UnityEngine;
 
 namespace StalkerSimulation.Configs.Npc
 {
 	public abstract class NpcStateConfig : ScriptableObject
 	{
-		public virtual StateData GetStateData() => new StateData();
+		public abstract NpcState BuildNpcState();
 	}
 }

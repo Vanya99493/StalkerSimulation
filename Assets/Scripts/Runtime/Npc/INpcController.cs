@@ -4,6 +4,7 @@ namespace StalkerSimulation.Npc
 {
 	public interface INpcController
 	{
+		public IAnimationController AnimationController { get; }
 		public INpcMovementController MovementController { get; }
 		public ICheckPoint CurrentCheckPoint { get; }    
 		public OrderData OrderData { get; }

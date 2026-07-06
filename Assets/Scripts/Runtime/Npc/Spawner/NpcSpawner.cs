@@ -17,10 +17,7 @@ namespace StalkerSimulation.Npc
 
 		[Space(10)]
 		[SerializeField]
-		private CheckPoint _team1Base;
-		
-		[SerializeField]
-		private CheckPoint _team2Base;
+		private CheckPointsCollection _checkPointsCollection;
 
 		[Space(10)]
 		[SerializeField]
@@ -29,13 +26,19 @@ namespace StalkerSimulation.Npc
 		[Header("Configs")]
 		[SerializeField]
 		private NpcBehaviourConfig _npcBehaviourConfig;
+		
+		[SerializeField]
+		private NpcDataConfig _npcDataConfig;
 
 		private NpcBuilder _npcBuilder;
 		private readonly List<NpcController> _npcList = new ();
 
 		public void Initialize()
 		{
-			_npcBuilder = new NpcBuilder();
+			_npcBuilder = new NpcBuilder(
+				_navMeshSurface,
+				_npcBehaviourConfig, 
+				_npcDataConfig);
 		}
 		
 		public void SpawnNpc(TeamType teamType, int npcCount)
@@ -48,15 +51,11 @@ namespace StalkerSimulation.Npc
 		
 		public void SpawnNpc(TeamType teamType)
 		{
-			CheckPoint checkPoint = GetCheckPointByTeam(teamType);
+			ICheckPoint checkPoint = GetCheckPointByTeam(teamType);
 			
 			NpcController npcController = _npcFactory.Create(checkPoint.SpawnPosition, Quaternion.identity);
-			npcController.Initialize(_navMeshSurface);
 			
-			_npcBuilder.BuildNpcBehaviour(npcController, _npcBehaviourConfig);
-			
-			npcController.SetChekPoint(checkPoint);
-			npcController.SetOrder(_defaultOrderData);
+			_npcBuilder.BuildNpc(npcController, teamType, checkPoint, _defaultOrderData);
 			
 			_npcList.Add(npcController);
 		}
@@ -70,12 +69,12 @@ namespace StalkerSimulation.Npc
 			_npcList.Clear();
 		}
 
-		private CheckPoint GetCheckPointByTeam(TeamType teamType)
+		private ICheckPoint GetCheckPointByTeam(TeamType teamType)
 		{
 			return teamType switch
 			{
-				TeamType.Team1 => _team1Base,
-				TeamType.Team2 => _team2Base,
+				TeamType.Team1 => _checkPointsCollection.Team1BaseCheckPoint,
+				TeamType.Team2 => _checkPointsCollection.Team2BaseCheckPoint,
 			};
 		}
 	}

@@ -1397,6 +1397,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 539871017}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &560791423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 560791425}
+  - component: {fileID: 560791424}
+  m_Layer: 0
+  m_Name: CheckPointsCollection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &560791424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560791423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35fc26b01d754f8ba718683072e528cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Environment.CheckPointsCollection
+  _team1BaseCheckPoint: {fileID: 660068209}
+  _team2BaseCheckPoint: {fileID: 1763007284}
+--- !u!4 &560791425
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560791423}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &564046259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,11 +1628,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Npc.NpcSpawner
   _npcFactory: {fileID: 1698925415}
   _navMeshSurface: {fileID: 918070898}
-  _team1Base: {fileID: 660068209}
-  _team2Base: {fileID: 1763007284}
+  _checkPointsCollection: {fileID: 560791424}
   _defaultOrderData:
     OrderType: 0
   _npcBehaviourConfig: {fileID: 11400000, guid: 0b935a042a30a6d478e87a57a050a635, type: 2}
+  _npcDataConfig: {fileID: 11400000, guid: 3a8d89b61b7bb7d4193f7849b7718591, type: 2}
 --- !u!4 &632424711
 Transform:
   m_ObjectHideFlags: 0
@@ -5677,6 +5723,7 @@ SceneRoots:
   - {fileID: 1866490883}
   - {fileID: 684961641}
   - {fileID: 632424711}
+  - {fileID: 560791425}
   - {fileID: 817404394}
   - {fileID: 918070897}
   - {fileID: 762005216}

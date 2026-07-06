@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ObserveStateConfig
   m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Configs.Npc.HoldStateConfig
   _observeStateData:
-    MinimalObserveTime: 2
-    MaximalObserveTime: 5
+    MinimalObserveTime: 1
+    MaximalObserveTime: 2
