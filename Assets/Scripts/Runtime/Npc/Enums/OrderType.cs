@@ -7,6 +7,7 @@
 		PatrolInnerYard,
 		PatrolOuterArea,
 		MoveToCheckPoint,
+		AttackTarget,
 		AttackCheckPoint,
 	}
 }

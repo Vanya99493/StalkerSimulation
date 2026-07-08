@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using StalkerSimulation.Npc;
 using UnityEngine;
 
 namespace StalkerSimulation.Configs.Npc
@@ -11,6 +13,13 @@ namespace StalkerSimulation.Configs.Npc
 		
 		[field: SerializeField]
 		public int MaxHealthPoints { get; private set; }
+
+		[Space(20)]
+		[SerializeField]
+		private Color _defaultColor;
+		
+		[SerializeField]
+		private List<Pair<TeamType, Color>> _teamColors = new();
 		
 		[Space(20)]
 		[SerializeField]
@@ -18,6 +27,8 @@ namespace StalkerSimulation.Configs.Npc
 
 		[SerializeField]
 		private List<string> _npcSurnames = new();
+
+		public Color GetTeamColor(TeamType team) => _teamColors.FirstOrDefault(x => x.Key == team)?.Value ?? _defaultColor;
 
 		public string GetRandomFullName()
 		{

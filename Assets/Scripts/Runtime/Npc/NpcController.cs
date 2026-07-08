@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using StalkerSimulation.Environment;
+using StalkerSimulation.Weapon;
 using Unity.AI.Navigation;
 using UnityEngine;
 
@@ -12,6 +13,9 @@ namespace StalkerSimulation.Npc
 		private AnimationController _animationController;
 		
 		[SerializeField]
+		private VisualizationController _visualizationController;
+		
+		[SerializeField]
 		private AlertController _alertController;
 		
 		[SerializeField]
@@ -19,6 +23,17 @@ namespace StalkerSimulation.Npc
 		
 		[SerializeField]
 		private HealthController _npcHealthController;
+
+		[Header("Weapon")]
+		[SerializeField]
+		private WeaponBase _weapon;
+
+		[SerializeField]
+		private Transform _weaponPivot;
+		
+		[Space(20)]
+		[SerializeField]
+		private Transform _eyeTransform;
 		
 		private NpcData _npcData;
 		private ICheckPoint _currentCheckPoint;
@@ -26,15 +41,20 @@ namespace StalkerSimulation.Npc
 
 		private Dictionary<Type, NpcState> _states = new();
 		private NpcState _currentNpcState;
+
+		private Quaternion _weaponDefaultRotation;
 		
 		public IAnimationController AnimationController => _animationController;
 		public INpcMovementController MovementController => _movementController;
+		public IHealthController HealthController => _npcHealthController;
+		public IWeapon Weapon => _weapon;
+		public NpcData NpcData => _npcData;
 		public ICheckPoint CurrentCheckPoint => _currentCheckPoint;
 		public OrderData OrderData => _orderData.Clone();
 		public INpcState CurrentState => _currentNpcState;
 		
-		public string Name => _npcData.Name;
-		public TeamType TeamType => _npcData.TeamType;
+		public Transform Transform => transform;
+		public Vector3 EyePosition => _eyeTransform.position;
 
 		public event Action<IDestroyable> DestroyEvent;
 
@@ -53,9 +73,6 @@ namespace StalkerSimulation.Npc
 		private void Update()
 		{
 			_currentNpcState?.Act();
-			
-			// --- Debug ---
-			_currentStateDebugString = _currentNpcState?.ToString();
 		}
 
 		public void Initialize(
@@ -63,10 +80,13 @@ namespace StalkerSimulation.Npc
 			NavMeshSurface navMeshSurface)
 		{
 			_npcData = npcData;
+			_weaponDefaultRotation = _weaponPivot.rotation;
 			
+			_visualizationController.Initialize(_npcData.Color);
 			_alertController.Initialize(this);
 			_movementController.Initialize(navMeshSurface);
 			_npcHealthController.Initialize(npcData.MaxHealthPoints, npcData.CurrentHealthPoints);
+			_weapon.Initialize();
 		}
 
 		public void InitializeBehaviour(Dictionary<Type, NpcState> states)
@@ -83,6 +103,14 @@ namespace StalkerSimulation.Npc
 		{
 			_orderData = orderData;
 			ChangeStateAccordingToOrder();
+		}
+
+		public void Aim(Transform aimTransform)
+		{
+			Transform.Rotate(aimTransform.eulerAngles);
+			_weaponPivot.Rotate(aimTransform != null
+				? aimTransform.eulerAngles
+				: _weaponDefaultRotation.eulerAngles);
 		}
 
 		public bool ChangeState<T>() where T : NpcState
@@ -112,7 +140,11 @@ namespace StalkerSimulation.Npc
 					ChangeState<PatrolState>();
 					break;
 				case OrderType.MoveToCheckPoint:
+				case OrderType.AttackCheckPoint:
 					ChangeState<MoveToCheckPointState>();
+					break;
+				case OrderType.AttackTarget:
+					ChangeState<AttackState>();
 					break;
 				default:
 					ChangeState<HoldState>();
@@ -133,48 +165,6 @@ namespace StalkerSimulation.Npc
 		private void OnDeathEventHandler(DamageArgs damageArgs)
 		{
 			ChangeState<DeathState>();
-		}
-		
-		// -------------
-		// --- Debug ---
-		// -------------
-		
-		[Space(20)]
-		[Header("Debug")]
-		[SerializeField]
-		private string _currentStateDebugString;
-		
-		[SerializeField]
-		private CheckPoint _checkPointToMove;
-		
-		[ContextMenu("Hold")]
-		public void Hold()
-		{
-			SetOrder(new OrderData(OrderType.Hold));
-		}
-
-		[ContextMenu("Observe")]
-		public void Observe()
-		{
-			SetOrder(new OrderData(OrderType.Observe));
-		}
-
-		[ContextMenu("Patrol Inside")]
-		public void PatrolInside()
-		{
-			SetOrder(new OrderData(OrderType.PatrolInnerYard));
-		}
-
-		[ContextMenu("Patrol Outside")]
-		public void PatrolOutside()
-		{
-			SetOrder(new OrderData(OrderType.PatrolOuterArea));
-		}
-
-		[ContextMenu("Move To CheckPoint")]
-		public void MoveToCheckPoint()
-		{
-			SetOrder(new MoveToCheckPointOrderData(OrderType.MoveToCheckPoint, _checkPointToMove));
 		}
 	}
 }

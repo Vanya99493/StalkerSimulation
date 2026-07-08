@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace StalkerSimulation.Npc
 {
@@ -36,9 +38,76 @@ namespace StalkerSimulation.Npc
 
 		private void UpdateVision()
 		{
-			float radius = _npcController.CurrentState.AlertRadius;
-			
-			// TODO: create vision simulation
+			List<INpcController> sightAngleTargets = OverlapsSurrounding();
+
+			if (DetermineEnemiesIfExists(sightAngleTargets, out List<INpcController> enemies))
+			{
+				INpcController priorityEnemyTarget =  DeterminePriorityEnemyTarget(enemies);
+				_npcController.SetOrder(new AttackOrderData(OrderType.AttackTarget, priorityEnemyTarget));
+			}
+		}
+
+		private List<INpcController> OverlapsSurrounding()
+		{
+			List<INpcController> sightAngleTargets = new();
+				
+			int count = Physics.OverlapSphereNonAlloc(
+				_npcController.EyePosition, 
+				_npcController.CurrentState.AlertRadius, 
+				_rangeColliders,
+				_npcController.NpcData.InteractionLayerMask);
+
+			for (int i = 0; i < count; i++)
+			{
+				Collider target = _rangeColliders[i];
+				
+				Vector3 direction = target.transform.position - _npcController.EyePosition;
+
+				if (Vector3.Angle(transform.forward, direction) > _npcController.NpcData.ViewAngle * 0.5f)
+				{
+					continue;
+				}
+
+				if (Physics.Raycast(
+					    _npcController.EyePosition, 
+					    direction.normalized, 
+					    out RaycastHit hit, 
+					    direction.magnitude,
+					    _npcController.NpcData.InteractionLayerMask))
+				{
+					if (hit.transform.TryGetComponent(out INpcController npcController))
+					{
+						sightAngleTargets.Add(npcController);
+					}
+				}
+			}
+
+			return sightAngleTargets;
+		}
+
+		private bool DetermineEnemiesIfExists(List<INpcController> targets, out List<INpcController> enemies)
+		{
+			enemies = targets.Where(x => x.NpcData.TeamType != _npcController.NpcData.TeamType && x.HealthController.IsAlive).ToList();
+			return enemies.Count > 0;
+		}
+
+		private INpcController DeterminePriorityEnemyTarget(List<INpcController> enemies)
+		{
+			float minimalDistance = 100000f;
+			INpcController priorityEnemy = null;
+
+			foreach (var enemyController in enemies)
+			{
+				float distance = Vector3.Distance(transform.position, enemyController.Transform.position);
+
+				if (distance < minimalDistance)
+				{
+					minimalDistance = distance;
+					priorityEnemy = enemyController;
+				}
+			}
+
+			return priorityEnemy;
 		}
 	}
 }

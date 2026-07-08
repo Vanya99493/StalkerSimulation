@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda140008b55480ea1bbb8f5b2e822a1, type: 3}
   m_Name: PatrolStateConfig
   m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Configs.Npc.PatrolStateConfig
+  _stateData:
+    AlertRadius: 10

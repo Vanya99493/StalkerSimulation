@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba33d97bbd94af2ab572857aa8de25a, type: 3}
   m_Name: MoveToCheckPointStateConfig
   m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Configs.Npc.MoveToCheckPointStateConfig
+  _stateData:
+    AlertRadius: 10

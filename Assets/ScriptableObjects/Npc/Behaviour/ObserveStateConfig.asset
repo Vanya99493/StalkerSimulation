@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ObserveStateConfig
   m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Configs.Npc.HoldStateConfig
   _observeStateData:
+    AlertRadius: 15
     MinimalObserveTime: 1
     MaximalObserveTime: 2

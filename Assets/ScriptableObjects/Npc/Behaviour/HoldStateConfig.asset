@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f7bd20840a54452bb7ad34697d6fc91, type: 3}
   m_Name: HoldStateConfig
   m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Configs.Npc.HoldStateConfig
+  _stateData:
+    AlertRadius: 5
