@@ -12,6 +12,7 @@ namespace StalkerSimulation.Npc
 
 		public NavMeshSurface NavMeshSurface { get; private set; }
 
+		[SerializeField]
 		private bool _isMoving;
 		private Vector3 _destinationPosition;
 		

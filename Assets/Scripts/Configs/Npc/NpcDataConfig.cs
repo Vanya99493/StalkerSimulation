@@ -14,6 +14,9 @@ namespace StalkerSimulation.Configs.Npc
 		[field: SerializeField]
 		public int MaxHealthPoints { get; private set; }
 
+		[field: SerializeField] 
+		public LayerMask InteractionLayerMask { get; private set; }
+
 		[Space(20)]
 		[SerializeField]
 		private Color _defaultColor;

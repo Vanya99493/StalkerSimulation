@@ -1,4 +1,5 @@
-﻿using StalkerSimulation.Npc;
+﻿using NaughtyAttributes;
+using StalkerSimulation.Npc;
 using UnityEngine;
 
 namespace StalkerSimulation.Entry
@@ -18,7 +19,7 @@ namespace StalkerSimulation.Entry
 			_npcSpawner.DestroyAllNpc();
 		}
 
-		[ContextMenu("Spawn NPC")]
+		[Button]
 		public void SpawnNpc()
 		{
 			_npcSpawner.SpawnNpc(TeamType.Team1);

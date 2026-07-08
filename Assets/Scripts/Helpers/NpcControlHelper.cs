@@ -1,4 +1,4 @@
-﻿using System;
+﻿using NaughtyAttributes;
 using StalkerSimulation.Environment;
 using StalkerSimulation.Npc;
 using UnityEngine;
@@ -24,31 +24,31 @@ namespace StalkerSimulation.Helpers
 			_currentStateDebugString = _npcController.CurrentState?.ToString();
 		}
 
-		[ContextMenu("Hold")]
+		[Button]
 		public void Hold()
 		{
 			_npcController.SetOrder(new OrderData(OrderType.Hold));
 		}
 
-		[ContextMenu("Observe")]
+		[Button]
 		public void Observe()
 		{
 			_npcController.SetOrder(new OrderData(OrderType.Observe));
 		}
 
-		[ContextMenu("Patrol Inside")]
+		[Button]
 		public void PatrolInside()
 		{
 			_npcController.SetOrder(new OrderData(OrderType.PatrolInnerYard));
 		}
 
-		[ContextMenu("Patrol Outside")]
+		[Button]
 		public void PatrolOutside()
 		{
 			_npcController.SetOrder(new OrderData(OrderType.PatrolOuterArea));
 		}
 
-		[ContextMenu("Move To CheckPoint")]
+		[Button]
 		public void MoveToCheckPoint()
 		{
 			_npcController.SetOrder(new MoveToCheckPointOrderData(OrderType.MoveToCheckPoint, _checkPointToMove));

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2214309233246057630}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8009010121323915899}
   - component: {fileID: 2347143797452619604}
   - component: {fileID: 6433897829703509084}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AmmunitionSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7047382816590320942}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VFXs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 7466607398564851615}
   - component: {fileID: 7767496892551366594}
   - component: {fileID: 8575641700896681736}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 1269739753759900972}
   - component: {fileID: 6128212104871534271}
   - component: {fileID: 4199557094878188780}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShotParticleSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5145,7 +5145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2199024834052535323}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5180,7 +5180,7 @@ GameObject:
   - component: {fileID: 8692075284134609821}
   - component: {fileID: 9057169835410295509}
   - component: {fileID: 4743949145036709762}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

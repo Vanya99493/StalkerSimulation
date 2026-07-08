@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1205379226634076914}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 7465403946439839205}
   - component: {fileID: 3104734061055708301}
   - component: {fileID: 6187794162388120954}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,13 +172,14 @@ GameObject:
   - component: {fileID: 1969196826891088616}
   - component: {fileID: 7457796595215882535}
   - component: {fileID: 7504817499697935315}
+  - component: {fileID: 3677024094839979173}
   - component: {fileID: 5221980465029466311}
   - component: {fileID: 3002420469723393498}
   - component: {fileID: 3506103862277193705}
   - component: {fileID: 6213753412919733203}
   - component: {fileID: 2193566509353257224}
   - component: {fileID: 94141932839875321}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Npc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,6 +246,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3677024094839979173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626915382653107268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe8182100dc4e82a450048a53dac048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Helpers.NpcControlHelper
+  _npcController: {fileID: 5221980465029466311}
+  _currentStateDebugString: 
+  _checkPointToMove: {fileID: 0}
 --- !u!114 &5221980465029466311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,8 +281,6 @@ MonoBehaviour:
   _weapon: {fileID: 8906733434176603042}
   _weaponPivot: {fileID: 2418621026007690948}
   _eyeTransform: {fileID: 2668465525918203483}
-  _currentStateDebugString: 
-  _checkPointToMove: {fileID: 0}
 --- !u!114 &3002420469723393498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,7 +361,7 @@ GameObject:
   - component: {fileID: 2668465525918203483}
   - component: {fileID: 434607286424204057}
   - component: {fileID: 6604922036248711312}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2418621026007690948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WeaponPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +485,7 @@ GameObject:
   - component: {fileID: 7899544534664073658}
   - component: {fileID: 5652660924129098308}
   - component: {fileID: 4999986806265744737}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,6 +608,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2418621026007690948}
     m_Modifications:
+    - target: {fileID: 1570439605928675067, guid: a81944a88216d0844bd444a913fdcad8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327680857159474395, guid: a81944a88216d0844bd444a913fdcad8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182551867985645028, guid: a81944a88216d0844bd444a913fdcad8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460937656982778777, guid: a81944a88216d0844bd444a913fdcad8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124536486767070322, guid: a81944a88216d0844bd444a913fdcad8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346709945718314217, guid: a81944a88216d0844bd444a913fdcad8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8692075284134609821, guid: a81944a88216d0844bd444a913fdcad8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

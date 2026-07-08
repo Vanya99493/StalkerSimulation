@@ -30,10 +30,10 @@ namespace StalkerSimulation.Npc
 		{
 			NpcData npcData = BuildNpcData(teamType);
 			npcController.Initialize(npcData, _navMeshSurface);
+			BuildNpcBehaviour(npcController);
+			
 			npcController.SetChekPoint(checkPoint);
 			npcController.SetOrder(orderData);
-			
-			BuildNpcBehaviour(npcController);
 		}
 
 		private NpcData BuildNpcData(TeamType teamType)
@@ -42,7 +42,9 @@ namespace StalkerSimulation.Npc
 			{
 				Name = _npcDataConfig.GetRandomFullName(),
 				TeamType = teamType,
+				Color = _npcDataConfig.GetTeamColor(teamType),
 				RankType = RankType.Junior,
+				InteractionLayerMask = _npcDataConfig.InteractionLayerMask,
 				MaxHealthPoints = _npcDataConfig.MaxHealthPoints,
 				CurrentHealthPoints = _npcDataConfig.MaxHealthPoints,
 			};
