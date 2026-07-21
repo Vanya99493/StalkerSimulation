@@ -60,8 +60,13 @@ namespace StalkerSimulation.Npc
 			for (int i = 0; i < count; i++)
 			{
 				Collider target = _rangeColliders[i];
+
+				if (target.transform == _npcController.Transform)
+				{
+					continue;
+				}
 				
-				Vector3 direction = target.transform.position - _npcController.EyePosition;
+				Vector3 direction = (target.transform.position + new Vector3(0f, _npcController.EyePosition.y, 0f)) - _npcController.EyePosition;
 
 				if (Vector3.Angle(transform.forward, direction) > _npcController.NpcData.ViewAngle * 0.5f)
 				{

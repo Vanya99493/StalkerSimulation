@@ -20,9 +20,20 @@ namespace StalkerSimulation.Entry
 		}
 
 		[Button]
-		public void SpawnNpc()
+		public void SpawnTeam1Npc()
 		{
-			_npcSpawner.SpawnNpc(TeamType.Team1);
+			SpawnNpc(TeamType.Team1);
+		}
+
+		[Button]
+		public void SpawnTeam2Npc()
+		{
+			SpawnNpc(TeamType.Team2);
+		}
+
+		private void SpawnNpc(TeamType teamType, int count = 1)
+		{
+			_npcSpawner.SpawnNpc(teamType, count);
 		}
 	}
 }

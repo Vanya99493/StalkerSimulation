@@ -171,6 +171,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1969196826891088616}
   - component: {fileID: 7457796595215882535}
+  - component: {fileID: 229567760819182125}
+  - component: {fileID: 8374677430183248787}
   - component: {fileID: 7504817499697935315}
   - component: {fileID: 3677024094839979173}
   - component: {fileID: 5221980465029466311}
@@ -179,7 +181,7 @@ GameObject:
   - component: {fileID: 6213753412919733203}
   - component: {fileID: 2193566509353257224}
   - component: {fileID: 94141932839875321}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Npc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,6 +226,56 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &229567760819182125
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626915382653107268}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &8374677430183248787
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626915382653107268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!195 &7504817499697935315
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -335,6 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StalkerSimulation.Npc.NpcMovementController
   _navMeshAgent: {fileID: 7504817499697935315}
+  _isMoving: 0
 --- !u!114 &94141932839875321
 MonoBehaviour:
   m_ObjectHideFlags: 0

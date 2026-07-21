@@ -7,6 +7,8 @@ namespace StalkerSimulation.Weapon
 	{
 		private AmmunitionData _ammunitionData;
 		
+		public GameObject GameObject => gameObject;
+		
 		public event Action<IDestroyable> DestroyEvent;
 
 		public void Initialize(AmmunitionData data)

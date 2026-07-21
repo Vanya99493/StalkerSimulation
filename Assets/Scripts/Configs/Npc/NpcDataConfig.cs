@@ -16,6 +16,9 @@ namespace StalkerSimulation.Configs.Npc
 
 		[field: SerializeField] 
 		public LayerMask InteractionLayerMask { get; private set; }
+		
+		[field: SerializeField]
+		public float ViewAngle { get; private set; }
 
 		[Space(20)]
 		[SerializeField]

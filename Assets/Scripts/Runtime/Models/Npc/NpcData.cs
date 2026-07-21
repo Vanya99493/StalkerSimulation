@@ -5,12 +5,13 @@ namespace StalkerSimulation
 {
 	public class NpcData
 	{
+		public string Guid = "";
 		public string Name = "";
 		public TeamType TeamType;
 		public Color Color;
 		public RankType RankType;
 		public LayerMask InteractionLayerMask;
-		public int ViewAngle;
+		public float ViewAngle;
 		public int MaxHealthPoints;
 		public int CurrentHealthPoints;
 	}

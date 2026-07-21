@@ -15,7 +15,8 @@ MonoBehaviour:
   <MaxHealthPoints>k__BackingField: 100
   <InteractionLayerMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
+  <ViewAngle>k__BackingField: 100
   _defaultColor: {r: 1, g: 1, b: 1, a: 1}
   _teamColors:
   - <Key>k__BackingField: 0

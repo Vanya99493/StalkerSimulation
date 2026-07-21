@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using StalkerSimulation.Configs.Npc;
 using StalkerSimulation.Environment;
 using Unity.AI.Navigation;
+using Utils;
 
 namespace StalkerSimulation.Npc
 {
@@ -40,11 +41,13 @@ namespace StalkerSimulation.Npc
 		{
 			return new NpcData()
 			{
+				Guid = GUIDGenerator.GenerateGuid(),
 				Name = _npcDataConfig.GetRandomFullName(),
 				TeamType = teamType,
 				Color = _npcDataConfig.GetTeamColor(teamType),
 				RankType = RankType.Junior,
 				InteractionLayerMask = _npcDataConfig.InteractionLayerMask,
+				ViewAngle = _npcDataConfig.ViewAngle,
 				MaxHealthPoints = _npcDataConfig.MaxHealthPoints,
 				CurrentHealthPoints = _npcDataConfig.MaxHealthPoints,
 			};

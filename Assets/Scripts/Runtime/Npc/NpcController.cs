@@ -53,6 +53,7 @@ namespace StalkerSimulation.Npc
 		public OrderData OrderData => _orderData.Clone();
 		public INpcState CurrentState => _currentNpcState;
 		
+		public GameObject GameObject => gameObject;
 		public Transform Transform => transform;
 		public Vector3 EyePosition => _eyeTransform.position;
 
@@ -115,6 +116,11 @@ namespace StalkerSimulation.Npc
 
 		public bool ChangeState<T>() where T : NpcState
 		{
+			if (_currentNpcState != null && _currentNpcState.GetType() == typeof(T))
+			{
+				return true;
+			}
+			
 			if (_states.TryGetValue(typeof(T), out NpcState state))
 			{
 				_currentNpcState?.ExitState();
